@@ -8,10 +8,10 @@ public interface IDamageable
 
 public class EntityDamage : MonoBehaviour, IDamageable
 {
-    [SerializeField] protected private IntVariable _health;
+    [SerializeField] private IntVariable _currentHealth;
 
     public void Damage(int damageInput)
     {
-        _health.Value -= damageInput;
+        _currentHealth.Value -= damageInput;
     }
 }

@@ -1,13 +1,16 @@
+using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    private IDamageable m_player => transform.GetComponent<IDamageable>();
+    private IDamageable m_damageable;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log($"Hit {collision.gameObject.name}!");
+        m_damageable = collision.gameObject.GetComponent<IDamageable>();
 
-        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-
-        if (damageable != null) damageable.Damage(1);
+        m_player.Damage(1);
+        if (m_damageable != null) m_damageable.Damage(1);
     }
 }
