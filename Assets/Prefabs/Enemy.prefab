@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 172532192030363026}
   - component: {fileID: 8903868195532172268}
   - component: {fileID: 6700834932578227534}
+  - component: {fileID: 1292615470794384808}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -76,11 +77,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultHealth: {fileID: 11400000, guid: fce0c9ad756d4464a9165645caab5c29, type: 2}
-  _currentHealth: {fileID: 11400000, guid: deed2f9a3c80f3e4aa532989bb742282, type: 2}
+  <CurrentHealth>k__BackingField: 0
   _defaultSpeed: {fileID: 11400000, guid: 0db09bbb84c1a404e8a4620787a1b6f9, type: 2}
-  _currentSpeed: {fileID: 11400000, guid: 03399d38180814d4fa9d9316ca45fd07, type: 2}
+  <CurrentSpeed>k__BackingField: 0
   _defaultSpeedMultiplier: {fileID: 11400000, guid: 95072ccc11f820048b78952e62a41c5c, type: 2}
-  _currentSpeedMultiplier: {fileID: 11400000, guid: a9e14d389b2607841b6dadf1e158b153, type: 2}
+  <CurrentSpeedMultiplier>k__BackingField: 0
 --- !u!114 &8903868195532172268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a320c90d7168244ad73bf7e9523524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: {fileID: 11400000, guid: deed2f9a3c80f3e4aa532989bb742282, type: 2}
+  _entityStats: {fileID: 172532192030363026}
 --- !u!114 &6700834932578227534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +107,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd99277d19c17744b7497dd871f8165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: {fileID: 11400000, guid: deed2f9a3c80f3e4aa532989bb742282, type: 2}
+  _entityStats: {fileID: 172532192030363026}
+  _entityDecayTimer: {fileID: 11400000, guid: 3c9f3b856b21f824d8655d252d44226a, type: 2}
+  _isEntityDecayable: 1
+--- !u!114 &1292615470794384808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743247911273335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5130a560c9206b348baddfb5185ba716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerPosition>k__BackingField: {fileID: 0}
 --- !u!1 &2454845609767541302
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +198,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.5058824, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

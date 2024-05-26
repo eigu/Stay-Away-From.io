@@ -1,4 +1,3 @@
-using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public interface IDamageable
@@ -8,10 +7,10 @@ public interface IDamageable
 
 public class EntityDamage : MonoBehaviour, IDamageable
 {
-    [SerializeField] private IntVariable _currentHealth;
+    [SerializeField] private EntityStats _entityStats;
 
     public void Damage(int damageInput)
     {
-        _currentHealth.Value -= damageInput;
+        _entityStats.CurrentHealth -= damageInput;
     }
 }
