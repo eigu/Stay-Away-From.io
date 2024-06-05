@@ -133,11 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 120656956}
   - component: {fileID: 120656959}
-  - component: {fileID: 120656955}
+  - component: {fileID: 120656962}
   - component: {fileID: 120656954}
   - component: {fileID: 120656957}
   - component: {fileID: 120656961}
-  - component: {fileID: 120656960}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -159,24 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: {fileID: 11400000, guid: 10e5d800d9e2ada4995094d7a79df6ea, type: 2}
   _speedMultiplier: {fileID: 11400000, guid: de760ce3d33620544b003476c67cefcc, type: 2}
---- !u!114 &120656955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120656953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a64781286fd21c64e9f612446fecf7fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultHealth: {fileID: 11400000, guid: f66324aca62436e45ba23b3a63356e5a, type: 2}
-  <CurrentHealth>k__BackingField: 0
-  _defaultSpeed: {fileID: 11400000, guid: 10e5d800d9e2ada4995094d7a79df6ea, type: 2}
-  <CurrentSpeed>k__BackingField: 0
-  _defaultSpeedMultiplier: {fileID: 11400000, guid: de760ce3d33620544b003476c67cefcc, type: 2}
-  <CurrentSpeedMultiplier>k__BackingField: 0
 --- !u!4 &120656956
 Transform:
   m_ObjectHideFlags: 0
@@ -233,21 +214,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &120656960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120656953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fd99277d19c17744b7497dd871f8165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _entityStats: {fileID: 120656955}
-  _entityDecayTimer: {fileID: 0}
-  _isEntityDecayable: 0
 --- !u!114 &120656961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +226,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a320c90d7168244ad73bf7e9523524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityStats: {fileID: 120656955}
+  _objectStats: {fileID: 120656962}
+--- !u!114 &120656962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120656953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64781286fd21c64e9f612446fecf7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultHealth: {fileID: 11400000, guid: f66324aca62436e45ba23b3a63356e5a, type: 2}
+  <CurrentHealth>k__BackingField: 0
+  _defaultSpeed: {fileID: 11400000, guid: 10e5d800d9e2ada4995094d7a79df6ea, type: 2}
+  <CurrentSpeed>k__BackingField: 0
+  _defaultSpeedMultiplier: {fileID: 11400000, guid: de760ce3d33620544b003476c67cefcc, type: 2}
+  <CurrentSpeedMultiplier>k__BackingField: 0
 --- !u!1 &295662941
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,11 +356,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b332843e2d08e8345b6658fd258cbfc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityPrefab: {fileID: 743247911273335047, guid: 1ff9137b8fb3de648b3c523ecfd9c202, type: 3}
-  _entitySpawnAmount: {fileID: 11400000, guid: 0f613c6d6777990428192023e1f8870e, type: 2}
-  _entitySpawnInterval: {fileID: 11400000, guid: e94dce230657c9b419cc46650b5afca4, type: 2}
-  _poolDefaultCapacity: 5
-  _playerPosition: {fileID: 120656956}
+  _objectPrefab: {fileID: 6700834932578227534, guid: 1ff9137b8fb3de648b3c523ecfd9c202, type: 3}
+  _objectSpawnAmount: {fileID: 11400000, guid: 0f613c6d6777990428192023e1f8870e, type: 2}
+  _objectSpawnInterval: {fileID: 11400000, guid: e94dce230657c9b419cc46650b5afca4, type: 2}
+  _poolDefaultCapacity: 20
+  _poolMaxSize: 100
+  _onInitializeObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1292615470794384808, guid: 1ff9137b8fb3de648b3c523ecfd9c202, type: 3}
+        m_TargetAssemblyTypeName: EnemyMovement, Assembly-CSharp
+        m_MethodName: set_PlayerPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 120656956}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5572300486756008780, guid: 1ff9137b8fb3de648b3c523ecfd9c202, type: 3}
+        m_TargetAssemblyTypeName: ObjectStats, Assembly-CSharp
+        m_MethodName: Initialize
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6700834932578227534, guid: 1ff9137b8fb3de648b3c523ecfd9c202, type: 3}
+        m_TargetAssemblyTypeName: ObjectInstance, Assembly-CSharp
+        m_MethodName: Initialize
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &356023305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,8 +1284,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1591392593}
+  - component: {fileID: 1591392594}
   m_Layer: 0
-  m_Name: Sound Manager
+  m_Name: Audio Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,6 +1307,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1591392594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591392592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e111b629a3351a8428cfda8ac450f357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicSounds: []
+  _sfxSounds: []
+  _musicSource: {fileID: 0}
+  _sfxSource: {fileID: 0}
 --- !u!1 &1637318259
 GameObject:
   m_ObjectHideFlags: 0

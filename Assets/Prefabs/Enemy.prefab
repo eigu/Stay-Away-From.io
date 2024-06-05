@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4353083785177775829}
   - component: {fileID: 1996881038339399033}
-  - component: {fileID: 172532192030363026}
+  - component: {fileID: 1292615470794384808}
+  - component: {fileID: 5572300486756008780}
   - component: {fileID: 8903868195532172268}
   - component: {fileID: 6700834932578227534}
-  - component: {fileID: 1292615470794384808}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -64,7 +64,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &172532192030363026
+--- !u!114 &1292615470794384808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743247911273335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5130a560c9206b348baddfb5185ba716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectStats: {fileID: 5572300486756008780}
+  <PlayerPosition>k__BackingField: {fileID: 0}
+--- !u!114 &5572300486756008780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a320c90d7168244ad73bf7e9523524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityStats: {fileID: 172532192030363026}
+  _objectStats: {fileID: 5572300486756008780}
 --- !u!114 &6700834932578227534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,22 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd99277d19c17744b7497dd871f8165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityStats: {fileID: 172532192030363026}
-  _entityDecayTimer: {fileID: 11400000, guid: 3c9f3b856b21f824d8655d252d44226a, type: 2}
-  _isEntityDecayable: 1
---- !u!114 &1292615470794384808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743247911273335047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5130a560c9206b348baddfb5185ba716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <PlayerPosition>k__BackingField: {fileID: 0}
+  _objectStats: {fileID: 5572300486756008780}
+  _objectDecayTimer: {fileID: 11400000, guid: 3c9f3b856b21f824d8655d252d44226a, type: 2}
+  _isObjectDecayable: 1
 --- !u!1 &2454845609767541302
 GameObject:
   m_ObjectHideFlags: 0

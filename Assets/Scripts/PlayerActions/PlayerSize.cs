@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerSize : MonoBehaviour
 {
-    private Transform m_size => this.GetComponent<Transform>();
+    private Transform m_size => GetComponent<Transform>();
 
     [SerializeField] private float _sizeMultiplier;
 
