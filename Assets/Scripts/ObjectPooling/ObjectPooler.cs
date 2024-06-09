@@ -18,13 +18,14 @@ public class ObjectPooler : MonoBehaviour
 
     private ObjectInstance m_objectInstance;
 
+    [SerializeField] private Transform _playerPosition;
     [SerializeField] private GameObjectEvent _onInitializeObject;
 
     private void Start()
     {
         m_pool = new ObjectPool<ObjectInstance>(
         CreateObject,
-        OnGetFromPool,
+        null,
         OnReleaseToPool,
         OnDestroyPooledObject,
         defaultCapacity: _poolDefaultCapacity,
@@ -44,6 +45,21 @@ public class ObjectPooler : MonoBehaviour
             m_objectSpawnTimer = _objectSpawnInterval.Value;
         }
     }
+    private void Spawn()
+    {
+        _objectSpawnIndex = 0;
+
+        while (_objectSpawnIndex < _objectSpawnAmount.Value)
+        {
+            m_objectInstance = m_pool.Get();
+
+            m_objectInstance.PlayerPosition = _playerPosition;
+
+            _onInitializeObject.Invoke(m_objectInstance.gameObject);
+
+            _objectSpawnIndex++;
+        }
+    }
 
     private ObjectInstance CreateObject()
     {
@@ -54,11 +70,6 @@ public class ObjectPooler : MonoBehaviour
         return pooledObject;
     }
 
-    private void OnGetFromPool(ObjectInstance pooledObject)
-    {
-        pooledObject.gameObject.SetActive(true);
-    }
-
     private void OnReleaseToPool(ObjectInstance pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
@@ -67,19 +78,5 @@ public class ObjectPooler : MonoBehaviour
     private void OnDestroyPooledObject(ObjectInstance pooledObject)
     {
         Destroy(pooledObject.gameObject);
-    }
-
-    private void Spawn()
-    {
-        _objectSpawnIndex = 0;
-
-        while (_objectSpawnIndex < _objectSpawnAmount.Value)
-        {
-            m_objectInstance = m_pool.Get();
-
-            _onInitializeObject.Invoke(m_objectInstance.gameObject);
-
-            _objectSpawnIndex++;
-        }
     }
 }

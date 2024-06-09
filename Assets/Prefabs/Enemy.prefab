@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4353083785177775829}
   - component: {fileID: 1996881038339399033}
-  - component: {fileID: 1292615470794384808}
   - component: {fileID: 5572300486756008780}
-  - component: {fileID: 8903868195532172268}
   - component: {fileID: 6700834932578227534}
+  - component: {fileID: 1292615470794384808}
+  - component: {fileID: 8903868195532172268}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -64,20 +64,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1292615470794384808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743247911273335047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5130a560c9206b348baddfb5185ba716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectStats: {fileID: 5572300486756008780}
-  <PlayerPosition>k__BackingField: {fileID: 0}
 --- !u!114 &5572300486756008780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,25 +76,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e628766d726cfac4b9b950b837d94188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultHealth: {fileID: 11400000, guid: fce0c9ad756d4464a9165645caab5c29, type: 2}
+  _defaultHealth: {fileID: 11400000, guid: a22cf60865520e040a1ef2eb4c58d555, type: 2}
   <CurrentHealth>k__BackingField: 0
   _defaultSpeed: {fileID: 11400000, guid: 0db09bbb84c1a404e8a4620787a1b6f9, type: 2}
   <CurrentSpeed>k__BackingField: 0
   _defaultSpeedMultiplier: {fileID: 11400000, guid: 95072ccc11f820048b78952e62a41c5c, type: 2}
   <CurrentSpeedMultiplier>k__BackingField: 0
---- !u!114 &8903868195532172268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743247911273335047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6a320c90d7168244ad73bf7e9523524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectStats: {fileID: 5572300486756008780}
 --- !u!114 &6700834932578227534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,8 +95,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectStats: {fileID: 5572300486756008780}
-  _objectDecayTimer: {fileID: 11400000, guid: 3c9f3b856b21f824d8655d252d44226a, type: 2}
-  _isObjectDecayable: 1
+  _objectDespawnTimer: {fileID: 11400000, guid: 3c9f3b856b21f824d8655d252d44226a, type: 2}
+  _isObjectDespawnable: 1
+  <PlayerPosition>k__BackingField: {fileID: 0}
+  _spawnRadius: {fileID: 11400000, guid: f7e8a99b5ce52d44ab13d9edcfe38e1c, type: 2}
+--- !u!114 &1292615470794384808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743247911273335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5130a560c9206b348baddfb5185ba716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectInstance: {fileID: 6700834932578227534}
+  _objectStats: {fileID: 5572300486756008780}
+--- !u!114 &8903868195532172268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743247911273335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a320c90d7168244ad73bf7e9523524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectStats: {fileID: 5572300486756008780}
 --- !u!1 &2454845609767541302
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1961857975, guid: 73d37204e4c25d34e82995e7e13a092c, type: 3}
   m_Color: {r: 1, g: 0, b: 0.5058824, a: 1}
   m_FlipX: 0
   m_FlipY: 0

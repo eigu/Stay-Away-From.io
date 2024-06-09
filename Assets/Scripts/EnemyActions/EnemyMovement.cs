@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] private ObjectInstance _objectInstance;
     [SerializeField] private ObjectStats _objectStats;
-
-    [field: SerializeField] public Transform PlayerPosition { get; set; }
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, PlayerPosition.position, _objectStats.CurrentSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position,
+            _objectInstance.PlayerPosition.position,
+            _objectStats.CurrentSpeed * Time.deltaTime);
     }
 }

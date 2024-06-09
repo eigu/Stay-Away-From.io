@@ -10,6 +10,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _sfxSource;
 
+    private void Start()
+    {
+        PlayMusic($"BGM");
+    }
+
     public void PlayMusic(string name)
     {
         Audio sound = _musicSounds.Find(s => s.Name == name);

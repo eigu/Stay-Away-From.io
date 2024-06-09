@@ -6,8 +6,8 @@ public class ObjectStats : MonoBehaviour
     private ObjectStats m_objectStats;
 
     #region Health
-    [SerializeField] protected private IntVariable _defaultHealth;
-    [field: SerializeField] public int CurrentHealth { get; set; }
+    [SerializeField] protected private FloatVariable _defaultHealth;
+    [field: SerializeField] public float CurrentHealth { get; set; }
     #endregion
 
     #region Speed
@@ -20,9 +20,9 @@ public class ObjectStats : MonoBehaviour
     [field: SerializeField] public float CurrentSpeedMultiplier { get; set; }
     #endregion
 
-    public void Initialize(GameObject objectInstance)
+    public void Initialize(GameObject obj)
     {
-        m_objectStats = objectInstance.GetComponent<ObjectStats>();
+        m_objectStats = obj.GetComponent<ObjectStats>();
 
         m_objectStats.CurrentHealth = _defaultHealth.Value;
         m_objectStats.CurrentSpeed = _defaultSpeed.Value;

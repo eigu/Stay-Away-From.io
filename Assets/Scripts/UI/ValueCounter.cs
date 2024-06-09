@@ -9,6 +9,6 @@ public class ValueCounter : MonoBehaviour
 
     private void Update()
     {
-        _valueText.text = $"Score: {_value.Value}";
+        _valueText.text = $"{_value.name.ToUpper()}: {_value.Value}";
     }
 }
