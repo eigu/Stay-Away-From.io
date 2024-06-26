@@ -6,6 +6,7 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] private FloatVariable _score;
     [SerializeField] private FloatVariable _scoreIncrement;
     [SerializeField] private FloatVariable _scoreIncrementInterval;
+    [SerializeField] private FloatVariable _combo;
 
     private void Start()
     {
@@ -16,6 +17,6 @@ public class ScoreSystem : MonoBehaviour
 
     private void ScoreOverTime()
     {
-        _score.Value += _scoreIncrement;
+        _score.Value += _scoreIncrement * _combo;
     }
 }

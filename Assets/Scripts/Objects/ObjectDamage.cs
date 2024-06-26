@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public interface IDamageable
+public class ObjectDamage : MonoBehaviour, ICollidable
 {
-    void Damage(int damageAmount);
-}
+    public void Collide(GameObject obj) => Damage(obj);
 
-public class ObjectDamage : MonoBehaviour, IDamageable
-{
-    [SerializeField] private ObjectStats _objectStats;
-
-    public void Damage(int damageInput)
+    private void Damage(GameObject obj)
     {
-        _objectStats.CurrentHealth -= damageInput;
+        ObjectStats objectStats = obj.GetComponent<ObjectStats>();
+
+        objectStats.CurrentHealth -= objectStats.CurrentDamage;
     }
 }

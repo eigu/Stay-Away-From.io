@@ -82,6 +82,8 @@ MonoBehaviour:
   <CurrentSpeed>k__BackingField: 0
   _defaultSpeedMultiplier: {fileID: 11400000, guid: 95072ccc11f820048b78952e62a41c5c, type: 2}
   <CurrentSpeedMultiplier>k__BackingField: 0
+  _defaultDamage: {fileID: 11400000, guid: 2593609df46d0714b8b7a38c53424da1, type: 2}
+  <CurrentDamage>k__BackingField: 0
 --- !u!114 &6700834932578227534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5130a560c9206b348baddfb5185ba716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectInstance: {fileID: 6700834932578227534}
   _objectStats: {fileID: 5572300486756008780}
+  _objectInstance: {fileID: 6700834932578227534}
 --- !u!114 &8903868195532172268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a320c90d7168244ad73bf7e9523524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectStats: {fileID: 5572300486756008780}
 --- !u!1 &2454845609767541302
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,9 @@
-using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private FloatVariable _speed;
-    [SerializeField] private FloatVariable _speedMultiplier;
-
-    private float m_currentSpeed;
+    [SerializeField] private ObjectStats _objectStats;
 
     private Vector2 m_inputVector;
     private Vector3 m_movementVector;
@@ -15,14 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_nextPosition;
     private float m_step;
 
-    private void Update()
-    {
-        m_currentSpeed = _speed;
-    }
-
     private void FixedUpdate()
     {
-        m_step = m_currentSpeed * Time.deltaTime;
+        m_step = _objectStats.CurrentSpeed * Time.deltaTime;
 
         m_nextPosition = transform.position + m_movementVector;
 

@@ -47,9 +47,7 @@ public class ObjectPooler : MonoBehaviour
     }
     private void Spawn()
     {
-        _objectSpawnIndex = 0;
-
-        while (_objectSpawnIndex < _objectSpawnAmount.Value)
+        for (_objectSpawnIndex = 0; _objectSpawnIndex < _objectSpawnAmount.Value; _objectSpawnIndex++)
         {
             m_objectInstance = m_pool.Get();
 
