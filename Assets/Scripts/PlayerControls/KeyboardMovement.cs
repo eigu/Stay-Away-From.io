@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class KeyboardMovement : MonoBehaviour
 {
     [SerializeField] private ObjectStats _objectStats;
 
