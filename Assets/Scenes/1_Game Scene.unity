@@ -442,6 +442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectStats: {fileID: 120656962}
+  movementMultiplier: 100
+  smoothTime: 0.1
 --- !u!1 &226868505
 GameObject:
   m_ObjectHideFlags: 0
