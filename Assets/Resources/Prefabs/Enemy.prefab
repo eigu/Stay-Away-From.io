@@ -115,6 +115,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectStats: {fileID: 5572300486756008780}
   _objectInstance: {fileID: 6700834932578227534}
+  minSpeed: 4
+  maxSpeed: 5.5
+  accelerationTime: 1
+  speedIncreaseAfterDodge: 5
+  dodgeDetectionDistance: 1.5
 --- !u!114 &8903868195532172268
 MonoBehaviour:
   m_ObjectHideFlags: 0
