@@ -84,5 +84,5 @@ public class EnemyMovement : MonoBehaviour
         currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
 
         Debug.Log($"Enemy speed increased. New range: {minSpeed} - {maxSpeed}");
-    }
+    }   
 }
